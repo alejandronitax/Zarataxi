@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/SplashFragment">
+
+
+    <fragment
+        android:id="@+id/SplashFragment"
+        android:name="com.example.zarataxi.SplashFragment"
+        android:label="@string/first_fragment_label"
+        android:noHistory="true"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_SplashFragment_to_PromotionFragment"
+            app:destination="@id/promotionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/promotionFragment"
+        android:name="com.example.zarataxi.PromotionFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_promotion">
+        <action
+            android:id="@+id/action_PromotionFragment_to_VerificationFragment"
+            app:destination="@id/verificationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/verificationFragment"
+        android:name="com.example.zarataxi.VerificationFragment"
+        android:label="fragment_verification"
+        tools:layout="@layout/fragment_verification">
+        <action
+            android:id="@+id/action_verificationFragment_to_optionalRegisterFragment"
+            app:destination="@id/optionalRegisterFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/optionalRegisterFragment"
+        android:name="com.example.zarataxi.OptionalRegisterFragment"
+        android:label="fragment_optional_register"
+        tools:layout="@layout/fragment_optional_register">
+        <action
+            android:id="@+id/action_optionalRegisterFragment_to_googleMapsActivity"
+            app:destination="@id/googleMapsActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment2"
+        android:name="com.example.zarataxi.MapsFragment"
+        android:label="fragment_maps"
+        tools:layout="@layout/fragment_maps" />
+    <activity
+        android:id="@+id/googleMapsActivity"
+        android:name="com.example.zarataxi.GoogleMapsActivity"
+        android:label="activity_google_maps"
+        tools:layout="@layout/activity_google_maps" />
+
+
+</navigation>
