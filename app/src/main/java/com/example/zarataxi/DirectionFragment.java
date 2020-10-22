@@ -1,77 +1,145 @@
 package com.example.zarataxi;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.NavHost;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link DirectionFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DirectionFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private Context contexto;
+    private TextInputEditText editextOrigen,editextDestino;
+    private Button buttonOptional;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public DirectionFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DirectionFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DirectionFragment newInstance(String param1, String param2) {
-        DirectionFragment fragment = new DirectionFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public void onAttach (Context context) {
+        super.onAttach(context);
+        contexto = context;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    public View onCreateView(
+            LayoutInflater inflater, ViewGroup container,
+            Bundle savedInstanceState
+    ) {
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_direction, container, false);
+        return inflater.inflate(R.layout.fragment_direction, container, false);
+    }
+
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        editextOrigen = view.findViewById(R.id.editextOrigen);
+        editextDestino = view.findViewById(R.id.editextDestino);
+
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                Toast.makeText(contexto, "atras", Toast.LENGTH_SHORT).show();
+                getActivity().finish();
+            }
+        };
+
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
-        view.findViewById(R.id.buttonDirection).setOnClickListener(new View.OnClickListener() {
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
+
+        buttonOptional = view.findViewById(R.id.buttonOptional);
+
+            buttonOptional.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(DirectionFragment.this)
-                        .navigate(R.id.action_PromotionFragment_to_VerificationFragment);
+
+                if(!buttonOptional.getText().toString().equalsIgnoreCase("Enviar")){
+/*
+                    NavHostFragment.findNavController(DirectionFragmentCercalia)
+                            .navigate(R.id.action_directionFragmentCercalia_to_optionServicesFragment);
+
+*/
+                } else {
+
+                    NavHostFragment.findNavController(DirectionFragment.this)
+                                                .navigate(R.id.action_directionFragment_to_verificationFragment);
+
+
+                }
 
             }
         });
 
-        return view;
+         actionEditText(editextOrigen,R.drawable.icono_n_blue, R.color.nitax1);
+         actionEditText(editextDestino,R.drawable.icono_n_red, R.color.nitax2);
+
     }
+
+    private void actionEditText(final TextInputEditText textInputEditText, final Integer drawable, final Integer color){
+
+        textInputEditText.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+                // Check if edittext is empty
+                if (!TextUtils.isEmpty(s) && textInputEditText.getText().toString().length() >= 3) {
+
+                 /*   homeButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(color)));
+                    jobButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(color)));
+                    favoriteButton.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(color)));
+*/
+                } else {
+
+                    //recyclerView.setVisibility(View.INVISIBLE);
+
+                }
+
+            }
+        });
+
+    }
+
 }

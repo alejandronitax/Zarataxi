@@ -36,6 +36,8 @@ public class OptionalRegisterFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
@@ -50,7 +52,7 @@ public class OptionalRegisterFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(OptionalRegisterFragment.this)
-                        .navigate(R.id.action_optionalRegisterFragment_to_googleMapsActivity);
+                        .navigate(R.id.action_optionalRegisterFragment_to_mapsFragment);
             }
         });
     }

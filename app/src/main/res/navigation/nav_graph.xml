@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_verificationFragment_to_optionalRegisterFragment"
             app:destination="@id/optionalRegisterFragment" />
+        <action
+            android:id="@+id/action_verificationFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/optionalRegisterFragment"
@@ -42,19 +45,27 @@
         android:label="fragment_optional_register"
         tools:layout="@layout/fragment_optional_register">
         <action
-            android:id="@+id/action_optionalRegisterFragment_to_googleMapsActivity"
-            app:destination="@id/googleMapsActivity" />
+            android:id="@+id/action_optionalRegisterFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/mapsFragment2"
+        android:id="@+id/mapsFragment"
         android:name="com.example.zarataxi.MapsFragment"
         android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" />
-    <activity
-        android:id="@+id/googleMapsActivity"
-        android:name="com.example.zarataxi.GoogleMapsActivity"
-        android:label="activity_google_maps"
-        tools:layout="@layout/activity_google_maps" />
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_directionFragment"
+            app:destination="@id/directionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/directionFragment"
+        android:name="com.example.zarataxi.DirectionFragment"
+        android:label="fragment_direction"
+        tools:layout="@layout/fragment_direction" >
+        <action
+            android:id="@+id/action_directionFragment_to_verificationFragment"
+            app:destination="@id/verificationFragment" />
+    </fragment>
 
 
 </navigation>

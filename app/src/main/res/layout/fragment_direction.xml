@@ -7,25 +7,98 @@
     android:layout_height="match_parent"
     tools:context=".DirectionFragment">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <fragment
+        android:id="@+id/nav_host_fragment_maps"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="427dp"
+        android:layout_height="464dp"
+        app:defaultNavHost="false"
+        app:layout_constraintBottom_toTopOf="@+id/buttonOptional"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/inputTextDestino"
+        app:navGraph="@navigation/nav_graph_maps"
+        tools:layout="@layout/fragment_direcction_cercalia" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputTextOrigen"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        app:endIconCheckable="false"
+        app:endIconDrawable="@drawable/icono_mapa"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/white"
+        app:endIconTintMode="multiply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/icono_n_blue"
+        app:startIconTint="#01FFFF">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editextOrigen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/direction_ini_user"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputTextDestino"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="26dp"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:textAlignment="center"
+        app:endIconDrawable="@drawable/icono_mapa"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/white"
+        app:endIconTintMode="multiply"
+        app:layout_constraintBottom_toTopOf="@+id/homeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputTextOrigen"
+        app:layout_constraintVertical_bias="0.48000002"
+        app:startIconDrawable="@drawable/icono_n_red"
+        app:startIconTint="#FE0000">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editextDestino"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/direction_fin_user"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/buttonDirection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        android:id="@+id/buttonOptional"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Enviar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,14 +7,197 @@
     android:layout_height="match_parent"
     tools:context=".OptionalRegisterFragment">
 
-    <Button
-        android:id="@+id/buttonOptional"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/importe"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonPhoto"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/importe3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/number_phone"
+            android:inputType="numberDecimal"
+            android:maxLength="7" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/impasfasfasorte"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButtonPhoto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageButtonPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/importe"
+        app:startIconTint="#FFFFFF">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/importasfasfase3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/number_phone"
+            android:inputType="numberDecimal"
+            android:maxLength="7" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/imposfasfrte"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/impasfasfasorte">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/importfaasde3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/number_phone"
+            android:inputType="numberDecimal"
+            android:maxLength="7" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/a"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imposfasfrte"
+        app:startIconDrawable="@drawable/casa"
+        app:startIconTint="@color/common_google_signin_btn_text_dark_focused">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/imporste3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/number_phone"
+            android:inputType="numberDecimal"
+            android:maxLength="7" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputTextOrigen"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/a"
+        app:startIconDrawable="@drawable/maletin"
+        app:startIconTint="@color/common_google_signin_btn_text_dark_focused">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editextOrigen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/number_phone"
+            android:inputType="numberDecimal"
+            android:maxLength="7" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputTextDestino"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="192dp"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/inputTextOrigen"
+        app:layout_constraintVertical_bias="0.3"
+        app:startIconDrawable="@android:drawable/star_big_on"
+        app:startIconTint="@color/common_google_signin_btn_text_dark_focused">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editextDestino"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/number_phone"
+            android:inputType="numberDecimal"
+            android:maxLength="7" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonOptional"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87" />
+
+    <ImageButton
+        android:id="@+id/imageButtonPhoto"
+        android:layout_width="138dp"
+        android:layout_height="138dp"
+        android:layout_marginEnd="16dp"
+        android:src="@android:drawable/ic_menu_camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imposfasfrte"
+        app:layout_constraintTop_toTopOf="@+id/importe" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
