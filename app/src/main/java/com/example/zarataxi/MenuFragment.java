@@ -47,8 +47,7 @@ public class MenuFragment extends Fragment {
         };
         ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
-        Toolbar toolbar = view.findViewById(R.id.toolbar);
-        toolbar.setVisibility(View.INVISIBLE);
+
     }
 
 }

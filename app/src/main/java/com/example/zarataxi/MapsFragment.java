@@ -15,6 +15,7 @@ import android.app.ActionBar;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.icu.text.Transliterator;
 import android.location.Location;
 import android.location.LocationManager;
@@ -40,6 +41,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.maps.android.ui.BubbleIconFactory;
+import com.google.maps.android.ui.IconGenerator;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -105,7 +108,7 @@ public class MapsFragment extends Fragment {
         if (mapFragment != null) {
             mapFragment.getMapAsync(callback);
         }
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
         FloatingActionButton fab = view.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -151,6 +154,17 @@ public class MapsFragment extends Fragment {
                                 LatLng ltlng = new LatLng(location.getLatitude(), location.getLongitude());
 
                                 centerCamera(ltlng);
+
+
+/*                                IconGenerator mBubbleFactory = new IconGenerator(contexto);
+                                mBubbleFactory.setContentView(mImageView);
+                                mImageView.setImageBitmap(.....);*/
+
+
+
+                                /*mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconBitmap)).position(MyPosition).title("My current position"));
+*/
+
 
                                 markerInicial = mMap.addMarker(new MarkerOptions()
                                         .position(start)

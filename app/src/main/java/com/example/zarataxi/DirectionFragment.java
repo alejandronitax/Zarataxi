@@ -77,7 +77,7 @@ public class DirectionFragment extends Fragment implements View.OnClickListener 
             }
         };
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+      //  ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
 
         buttonOptional = view.findViewById(R.id.buttonOptional);

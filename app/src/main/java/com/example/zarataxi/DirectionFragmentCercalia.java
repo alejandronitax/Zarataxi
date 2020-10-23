@@ -75,7 +75,7 @@ public class DirectionFragmentCercalia extends Fragment implements View.OnClickL
             }
         };
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().show();
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
 
 
