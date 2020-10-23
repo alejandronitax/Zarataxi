@@ -65,6 +65,9 @@
         <action
             android:id="@+id/action_directionFragment_to_verificationFragment"
             app:destination="@id/verificationFragment" />
+        <action
+            android:id="@+id/action_directionFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
 
 

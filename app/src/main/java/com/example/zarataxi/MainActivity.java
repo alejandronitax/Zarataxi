@@ -9,12 +9,15 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.credentials.Credential;
 import com.google.android.gms.auth.api.credentials.HintRequest;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
+    private FusedLocationProviderClient fusedLocationClient;
     private static final int RESOLVE_HINT = 123;
 
     @Override
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);//initi
 
     }
     // Construct a request for phone numbers and show the picker
@@ -52,4 +56,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }

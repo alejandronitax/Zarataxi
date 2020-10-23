@@ -37,12 +37,12 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DirectionFragment extends Fragment {
+public class DirectionFragment extends Fragment implements View.OnClickListener {
 
     private Context contexto;
     private TextInputEditText editextOrigen,editextDestino;
     private Button buttonOptional;
-
+    private TextInputLayout inputTextOrigen,inputTextDestino;
     @Override
     public void onAttach (Context context) {
         super.onAttach(context);
@@ -65,7 +65,10 @@ public class DirectionFragment extends Fragment {
         editextOrigen = view.findViewById(R.id.editextOrigen);
         editextDestino = view.findViewById(R.id.editextDestino);
 
-
+         inputTextOrigen = view.findViewById(R.id.inputTextOrigen);
+         inputTextDestino = view.findViewById(R.id.inputTextDestino);
+         inputTextOrigen.setEndIconOnClickListener(this);
+         inputTextDestino.setEndIconOnClickListener(this);
         OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
             @Override
             public void handleOnBackPressed() {
@@ -142,4 +145,19 @@ public class DirectionFragment extends Fragment {
 
     }
 
+    @Override
+    public void onClick(View view) {
+
+        Bundle bundle = new Bundle();
+
+        if (view.getId() == inputTextOrigen.getEndIconMode()) {
+            bundle.putString("amount", "origin");
+        } else {
+            bundle.putString("amount", "destino");
+        }
+
+        NavHostFragment.findNavController(DirectionFragment.this)
+                .navigate(R.id.action_directionFragment_to_mapsFragment, bundle);
+
+    }
 }
