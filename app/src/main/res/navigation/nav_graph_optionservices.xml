@@ -11,10 +11,25 @@
         <action
             android:id="@+id/action_directionFragmentCercalia_to_optionServicesFragment"
             app:destination="@id/optionServicesFragment" />
+        <action
+            android:id="@+id/action_directionFragmentCercalia_to_destinyFragment"
+            app:destination="@id/destinyFragment" />
     </fragment>
     <fragment
         android:id="@+id/optionServicesFragment"
         android:name="com.example.zarataxi.OptionServicesFragment"
         android:label="fragment_option_services"
         tools:layout="@layout/fragment_option_services" />
+    <fragment
+        android:id="@+id/destinyFragment"
+        android:name="com.example.zarataxi.DestinyFragment"
+        android:label="fragment_destiny"
+        tools:layout="@layout/fragment_destiny" >
+        <action
+            android:id="@+id/action_destinyFragment_to_directionFragmentCercalia"
+            app:destination="@id/directionFragmentCercalia" />
+        <action
+            android:id="@+id/action_destinyFragment_to_directionFragmentCercalia2"
+            app:destination="@id/directionFragmentCercalia" />
+    </fragment>
 </navigation>

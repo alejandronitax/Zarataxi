@@ -88,16 +88,18 @@ public class DirectionFragment extends Fragment implements View.OnClickListener 
             public void onClick(View view) {
 
                 if(!buttonOptional.getText().toString().equalsIgnoreCase("Enviar")){
-/*
-                    NavHostFragment.findNavController(DirectionFragmentCercalia)
+
+                    /*NavHostFragment navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment);
+                    NavController navController = navHostFragment.getNavController();
+                    navController.navigate(R.id.action_directionFragmentCercalia_to_optionServicesFragment);*/
+
+                    NavHostFragment.findNavController(DirectionFragment.this)
                             .navigate(R.id.action_directionFragmentCercalia_to_optionServicesFragment);
 
-*/
                 } else {
 
                     NavHostFragment.findNavController(DirectionFragment.this)
                                                 .navigate(R.id.action_directionFragment_to_verificationFragment);
-
 
                 }
 

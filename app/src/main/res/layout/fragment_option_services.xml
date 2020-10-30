@@ -1,135 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/frameLayout5"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".OptionServicesFragment">
-
-
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/inputTextOrigen"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-    android:layout_width="0dp"
-    android:layout_height="74dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginEnd="16dp"
-    android:inputType="textEmailAddress"
-    android:maxLength="200"
-    android:orientation="vertical"
-    android:textAlignment="center"
-    app:endIconCheckable="false"
-    app:endIconDrawable="@drawable/icono_mapa"
-    app:endIconMode="password_toggle"
-    app:endIconTint="@color/white"
-    app:endIconTintMode="multiply"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:startIconDrawable="@drawable/icono_n_blue"
-    app:startIconTint="#01FFFF">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editextOrigen"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/direction_ini_user"
-        android:inputType="text" />
-
-</com.google.android.material.textfield.TextInputLayout>
-
-<com.google.android.material.textfield.TextInputLayout
-    android:id="@+id/inputTextDestino"
-    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-    android:layout_width="0dp"
-    android:layout_height="74dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginEnd="16dp"
-    android:layout_marginBottom="26dp"
-    android:inputType="textEmailAddress"
-    android:maxLength="200"
-    android:textAlignment="center"
-    app:endIconDrawable="@drawable/icono_mapa"
-    app:endIconMode="password_toggle"
-    app:endIconTint="@color/white"
-    app:endIconTintMode="multiply"
-    app:layout_constraintBottom_toTopOf="@+id/homeButton"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/inputTextOrigen"
-    app:layout_constraintVertical_bias="0.48000002"
-    app:startIconDrawable="@drawable/icono_n_red"
-    app:startIconTint="#FE0000">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editextDestino"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:hint="@string/direction_fin_user"
-        android:inputType="text" />
-
-</com.google.android.material.textfield.TextInputLayout>
-
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recyclerView"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
-    android:layout_height="0dp"
-    app:layout_constraintBottom_toTopOf="@+id/buttonOptional"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/jobButton" />
+    android:layout_height="match_parent"
+    tools:context=".OptionServicesFragment">
 
-<Button
-    android:id="@+id/buttonOptional"
-    android:layout_width="0dp"
-    android:layout_height="48dp"
-    android:layout_marginStart="16dp"
-    android:layout_marginEnd="16dp"
-    android:text="Button"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="1.0"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.976" />
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/homeButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:clickable="true"
-    android:filterTouchesWhenObscured="true"
-    android:src="@drawable/casa"
-    app:backgroundTintMode="add"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.19"
-    app:layout_constraintStart_toStartOf="@+id/inputTextDestino"
-    app:layout_constraintTop_toBottomOf="@+id/inputTextDestino" />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Hours"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="187dp" />
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/jobButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@color/colorAccent"
-    android:src="@drawable/maletin"
-    app:layout_constraintEnd_toStartOf="@+id/favoriteButton"
-    app:layout_constraintHorizontal_bias="0.5"
-    app:layout_constraintStart_toEndOf="@+id/homeButton"
-    app:layout_constraintTop_toTopOf="@+id/homeButton" />
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Date"
+        tools:layout_editor_absoluteX="215dp"
+        tools:layout_editor_absoluteY="187dp" />
 
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/favoriteButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintEnd_toEndOf="@+id/inputTextDestino"
-    app:layout_constraintHorizontal_bias="0.74"
-    app:layout_constraintStart_toEndOf="@+id/homeButton"
-    app:layout_constraintTop_toTopOf="@+id/jobButton"
-    app:srcCompat="@drawable/icono_estrella" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/special_options"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputTextOrigen"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="379dp"
+        android:layout_height="74dp"
+        android:enabled="false"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        app:endIconCheckable="false"
+        app:endIconDrawable="@drawable/icono_mapa"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/white"
+        app:endIconTintMode="multiply"
+        app:startIconDrawable="@drawable/icono_n_blue"
+        app:startIconTint="#01FFFF"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="16dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editextOrigen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/direction_ini_user"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputTextDestino"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="379dp"
+        android:layout_height="74dp"
+        android:enabled="false"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:textAlignment="center"
+        app:endIconDrawable="@drawable/icono_mapa"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/white"
+        app:endIconTintMode="multiply"
+        app:startIconDrawable="@drawable/icono_n_red"
+        app:startIconTint="#FE0000"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="106dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editextDestino"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/direction_fin_user"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="180dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="16dp"
+        android:text="@string/Hours"
+        app:iconTintMode="multiply"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="180dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/Date"
+        app:iconTintMode="multiply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/button2"
+        tools:layout_editor_absoluteY="206dp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="180dp"
+        android:layout_height="66dp"
+        android:gravity="center|start"
+        android:text="@string/car_number"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="272dp" />
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:layout_marginEnd="16dp"
+        android:drawableLeft="@drawable/taxibutton"
+        android:drawableRight="@drawable/suma"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="272dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="85dp"
+        android:layout_height="66dp"
+        android:drawableLeft="@drawable/taxibutton"
+        android:drawableRight="@drawable/menos"
+        app:layout_constraintStart_toStartOf="@+id/button6"
+        tools:layout_editor_absoluteY="272dp" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputTextOrigen4"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="379dp"
+        android:layout_height="174dp"
+        android:inputType="textEmailAddress"
+        android:maxLength="200"
+        android:orientation="vertical"
+        android:textAlignment="center"
+        app:endIconCheckable="false"
+        app:endIconDrawable="@android:drawable/ic_notification_clear_all"
+        app:endIconMode="password_toggle"
+        app:endIconTint="@color/white"
+        app:endIconTintMode="multiply"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="493dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editextOrigen8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/direction_ini_user"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+        android:layout_width="148dp"
+        android:layout_height="50dp"
+        android:layoutDirection="rtl"
+        android:text="CheckBox"
+        app:buttonTint="#000000"
+        tools:layout_editor_absoluteX="215dp"
+        tools:layout_editor_absoluteY="372dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+        android:layout_width="148dp"
+        android:layout_height="50dp"
+        android:layoutDirection="rtl"
+        android:text="CheckBox"
+        app:buttonTint="#000000"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="372dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+        android:layout_width="145dp"
+        android:layout_height="50dp"
+        android:layoutDirection="rtl"
+        android:text="CheckBox"
+        app:buttonTint="#000000"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="430dp" />
+
+    <Button
+        android:id="@+id/buttonOptional"
+        android:layout_width="379dp"
+        android:layout_height="48dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="667dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="180dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="432dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

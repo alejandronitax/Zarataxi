@@ -38,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
+        android:background="#FFFFFF"
         android:clickable="true"
         android:src="@android:drawable/ic_menu_mylocation"
         map:backgroundTint="#FFFFFF"
@@ -56,5 +57,6 @@
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toBottomOf="@+id/map"
-        map:navGraph="@navigation/nav_graph_optionservices" />
+        map:navGraph="@navigation/nav_graph_optionservices"
+        tools:layout="@layout/fragment_destiny" />
 </androidx.constraintlayout.widget.ConstraintLayout>
