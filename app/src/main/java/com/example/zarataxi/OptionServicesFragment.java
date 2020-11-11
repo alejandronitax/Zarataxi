@@ -31,10 +31,10 @@ import java.util.Calendar;
  * Use the {@link OptionServicesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class OptionServicesFragment extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class OptionServicesFragment extends Fragment implements DialogCalendarFragment.MyDialogoListener, DialogTimePickerFragment.MyDialogoListener, AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     private Context contexto;
-    private Button button_count;
+    private Button button_count, button_calendar, button_reloj;
     private DialogFragment nuevoFragmento;
 
     @Override
@@ -94,14 +94,14 @@ public class OptionServicesFragment extends Fragment implements AdapterView.OnIt
         super.onViewCreated(view, savedInstanceState);
 
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         SimpleDateFormat df2 = new SimpleDateFormat("HH:mm");
 
         String formattedHora = df2.format(calendar.getTime());
         String formattedDate = df.format(calendar.getTime());
 
-        Button button_reloj = view.findViewById(R.id.button_reloj);
-        Button button_calendar = view.findViewById(R.id.button_calendar);
+        button_reloj = view.findViewById(R.id.button_reloj);
+        button_calendar = view.findViewById(R.id.button_calendar);
         Button button_more_car = view.findViewById(R.id.button_more_car);
         Button button_less_car = view.findViewById(R.id.button_less_car);
         button_count = view.findViewById(R.id.button_count);
@@ -140,19 +140,19 @@ public class OptionServicesFragment extends Fragment implements AdapterView.OnIt
 
     @Override
     public void onClick(View view) {
-        
+
 
         switch (view.getId()) {
 
             case R.id.button_reloj:
 
-                nuevoFragmento = new DialogTimeFragment();
+                nuevoFragmento = new DialogTimePickerFragment();
                 nuevoFragmento.show(getActivity().getSupportFragmentManager(), "dialogo1");
 
                 break;
             case R.id.button_calendar:
                 Toast.makeText(contexto, "calendar", Toast.LENGTH_SHORT).show();
-                nuevoFragmento = new CalendarFragment();
+                nuevoFragmento = new DialogCalendarFragment();
                 nuevoFragmento.show(getActivity().getSupportFragmentManager(), "dialogo2");
                 break;
 
@@ -161,11 +161,11 @@ public class OptionServicesFragment extends Fragment implements AdapterView.OnIt
 /*                button_count.setImageDrawable(ResourcesCompat.getDrawable(context.getResources(), resource, null));
                 button_count*/
                 Toast.makeText(contexto, "2", Toast.LENGTH_SHORT).show();
-                button_count.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.dos, 0);
+                    button_count.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.dos, 0);
                 break;
 
             case R.id.button_less_car:
-                button_count.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.uno, 0);
+                    button_count.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.uno, 0);
                 break;
 
             default:
@@ -174,5 +174,15 @@ public class OptionServicesFragment extends Fragment implements AdapterView.OnIt
 
         }
 
+    }
+
+    @Override
+    public void onDialogSendDate(String date) {
+        button_calendar.setText(date);
+    }
+
+    @Override
+    public void onDialogSendHour(String hour) {
+        button_reloj.setText(hour);
     }
 }

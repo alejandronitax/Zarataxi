@@ -77,7 +77,31 @@ public class CalendarFragment extends DialogFragment {
     }
 */
 
-    public class CalendarFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+    public class DialogCalendarFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+        public interface MyDialogoListener {
+            void onDialogSendDate(String date);
+        }
+
+        DialogCalendarFragment.MyDialogoListener miEscuchador;
+
+        @Override
+        public void onDetach() {
+            super.onDetach();
+
+        }
+
+        @Override
+        public void onAttach(Context context) {
+            super.onAttach(context);
+            try {
+                miEscuchador = (DialogCalendarFragment.MyDialogoListener) getActivity();
+            } catch (ClassCastException e) {
+                throw new ClassCastException(getActivity().toString()
+                        + " must implement MiDialogoListener");
+            }
+        }
+
+
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             final Calendar c = Calendar.getInstance();
@@ -89,5 +113,7 @@ public class CalendarFragment extends DialogFragment {
         public void onDateSet(DatePicker view, int year, int month, int day) {
             Toast.makeText(getActivity(),"Has escogido " + day + "-" + month + "-" +
                     year,Toast.LENGTH_LONG).show();
+            miEscuchador.onDialogSendDate(day+"/"+month+"/"+year);
+            dismiss();
         }
     }
