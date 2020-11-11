@@ -1,9 +1,12 @@
 package com.example.zarataxi;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -74,11 +77,23 @@ public class SplashFragment extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-/*
-                SharedPreferences prefe = getSharedPreferences("preferences", Context.MODE_PRIVATE);
-*/
+
+                SharedPreferences prefe = contexto.getSharedPreferences("preferences", Context.MODE_PRIVATE);
+
+                int placeToNavigate;
+
+                if (prefe.getString("tlf","").isEmpty()){
+
+                    placeToNavigate = R.id.action_SplashFragment_to_PromotionFragment;
+
+                } else {
+
+                    placeToNavigate = R.id.action_SplashFragment_to_mapsFragment;
+
+                }
+
                 NavHostFragment.findNavController(SplashFragment.this)
-                        .navigate(R.id.action_SplashFragment_to_PromotionFragment);
+                        .navigate(placeToNavigate);
 
                 //getActivity().finish();
 /*                if (!navController.popBackStack()) {

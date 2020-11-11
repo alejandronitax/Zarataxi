@@ -3,33 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_maps"
-    app:startDestination="@id/directionFragmentCercalia">
+    app:startDestination="@id/destinyFragment">
     <fragment
         android:id="@+id/directionFragmentCercalia"
         android:name="com.example.zarataxi.DirectionFragmentCercalia"
-        android:label="DirectionFragmentCercalia" >
-        <action
-            android:id="@+id/action_directionFragmentCercalia_to_optionServicesFragment"
-            app:destination="@id/optionServicesFragment" />
-        <action
-            android:id="@+id/action_directionFragmentCercalia_to_destinyFragment"
-            app:destination="@id/destinyFragment" />
-    </fragment>
+        android:label="DirectionFragmentCercalia" />
     <fragment
         android:id="@+id/optionServicesFragment"
         android:name="com.example.zarataxi.OptionServicesFragment"
         android:label="fragment_option_services"
-        tools:layout="@layout/fragment_option_services" />
+        tools:layout="@layout/fragment_option_services" >
+        <action
+            android:id="@+id/action_optionServicesFragment_to_directionFragmentCercalia"
+            app:destination="@id/directionFragmentCercalia" />
+        <action
+            android:id="@+id/action_optionServicesFragment_to_destinyFragment"
+            app:destination="@id/destinyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/destinyFragment"
         android:name="com.example.zarataxi.DestinyFragment"
         android:label="fragment_destiny"
         tools:layout="@layout/fragment_destiny" >
         <action
-            android:id="@+id/action_destinyFragment_to_directionFragmentCercalia"
-            app:destination="@id/directionFragmentCercalia" />
-        <action
-            android:id="@+id/action_destinyFragment_to_directionFragmentCercalia2"
-            app:destination="@id/directionFragmentCercalia" />
+            android:id="@+id/action_destinyFragment_to_optionServicesFragment"
+            app:destination="@id/optionServicesFragment" />
     </fragment>
 </navigation>

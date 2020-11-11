@@ -8,6 +8,7 @@
     tools:context=".DirectionFragment">
 
 
+    <!--
     <fragment
         android:id="@+id/nav_host_fragment_maps"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -20,6 +21,8 @@
         app:layout_constraintTop_toBottomOf="@+id/inputTextDestino"
         app:navGraph="@navigation/nav_graph_optionservices"
         tools:layout="@layout/fragment_direcction_cercalia" />
+-->
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/inputTextOrigen"
@@ -85,6 +88,54 @@
             android:inputType="text" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/jobButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="11dp"
+        android:background="@color/colorAccent"
+        android:src="@drawable/maletin"
+        app:layout_constraintEnd_toStartOf="@+id/favoriteButton"
+        app:layout_constraintStart_toEndOf="@+id/homeButton"
+        app:layout_constraintTop_toTopOf="@+id/homeButton" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/favoriteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/jobButton"
+        app:layout_constraintTop_toTopOf="@+id/jobButton"
+        app:srcCompat="@drawable/icono_estrella" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/homeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="208dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="21dp"
+        android:clickable="true"
+        android:filterTouchesWhenObscured="true"
+        android:src="@drawable/casa"
+        app:backgroundTintMode="add"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintEnd_toStartOf="@+id/jobButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="69dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeButton" />
 
     <Button
         android:id="@+id/buttonOptional"

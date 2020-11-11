@@ -51,8 +51,13 @@ public class OptionalRegisterFragment extends Fragment {
         view.findViewById(R.id.buttonOptional).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Bundle bundle = new Bundle();
+                bundle.putString("maps", "maps1");
+                bundle.putBoolean("endDestiny", false);
+
                 NavHostFragment.findNavController(OptionalRegisterFragment.this)
-                        .navigate(R.id.action_optionalRegisterFragment_to_mapsFragment);
+                        .navigate(R.id.action_optionalRegisterFragment_to_mapsFragment,bundle);
             }
         });
     }

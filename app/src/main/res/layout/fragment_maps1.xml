@@ -25,10 +25,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
+        android:layout_marginEnd="16dp"
         android:src="@android:drawable/ic_menu_sort_by_size"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintHorizontal_bias="1.0"
+        map:layout_constraintStart_toEndOf="@+id/button_destiny"
         map:layout_constraintStart_toStartOf="parent"
         map:layout_constraintTop_toTopOf="parent"
         map:layout_constraintVertical_bias="0.023" />
@@ -47,17 +49,55 @@
         map:layout_constraintTop_toBottomOf="@+id/fab"
         map:layout_constraintVertical_bias="1.0" />
 
-    <fragment
-        android:id="@+id/fragment"
-        android:name="androidx.navigation.fragment.NavHostFragment"
+    <com.example.zarataxi.CircleImageView
+        android:id="@+id/circleImageView"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="46dp"
+        android:src="@drawable/chico_morenito"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toBottomOf="@+id/map"
+        map:layout_constraintVertical_bias="0.694" />
+
+    <Button
+        android:id="@+id/button_destiny"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        map:defaultNavHost="false"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/origin"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent"
+        map:layout_constraintTop_toBottomOf="@+id/textView2"
+        map:layout_constraintVertical_bias="0.437" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="0.347"
+        map:layout_constraintStart_toEndOf="@+id/circleImageView"
         map:layout_constraintTop_toBottomOf="@+id/map"
-        map:navGraph="@navigation/nav_graph_optionservices"
-        tools:layout="@layout/fragment_destiny" />
+        map:layout_constraintVertical_bias="0.196" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/destination"
+        map:layout_constraintBottom_toBottomOf="parent"
+        map:layout_constraintEnd_toEndOf="parent"
+        map:layout_constraintHorizontal_bias="0.316"
+        map:layout_constraintStart_toEndOf="@+id/circleImageView"
+        map:layout_constraintTop_toBottomOf="@+id/textView"
+        map:layout_constraintVertical_bias="0.225" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

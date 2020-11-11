@@ -23,6 +23,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -64,6 +65,10 @@ public class MapsFragment extends Fragment {
     boolean locationPermission = false;
     private Marker markerInicial,markerFinal;
     private FloatingActionButton myUbi;
+    private boolean access;
+
+    private Bundle datosRecuperados;
+
 
     @Override
     public void onAttach (Context context) {
@@ -96,13 +101,32 @@ public class MapsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_maps, container, false);
+
+        View view;
+        datosRecuperados = getArguments();
+
+        Toast.makeText(contexto, ""+datosRecuperados.toString(), Toast.LENGTH_SHORT).show();
+
+        if(!datosRecuperados.isEmpty()){
+
+            if (!datosRecuperados.getString("maps").equalsIgnoreCase("maps1")) {
+                view = inflater.inflate(R.layout.fragment_maps2, container, false);
+            } else {
+                view = inflater.inflate(R.layout.fragment_maps1, container, false);
+            }
+        } else {
+
+            view = inflater.inflate(R.layout.fragment_maps1, container, false);
+
+        }
+        return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         super.onViewCreated(view, savedInstanceState);
+
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
@@ -124,9 +148,28 @@ public class MapsFragment extends Fragment {
 
         myUbi = view.findViewById(R.id.myUbi);
 
+            Button button_destiny = view.findViewById(R.id.button_destiny);
+            button_destiny.setOnClickListener(new SingleClickListener() {
+                @Override
+                public void performClick(View v) {
+                    Bundle bundle = new Bundle();
+
+                    if(datosRecuperados.getBoolean("endDestiny")){
+
+                        bundle.putString("destiny", "prueba1");
+
+                    } else {
+
+                        bundle.putString("origin", "prueba2");
+
+                    }
+                    NavHostFragment.findNavController(MapsFragment.this)
+                            .navigate(R.id.action_mapsFragment_to_directionFragment,bundle);
+                }
+            });
+
 
         // recogemos los argumentos del otro framento con getArguments().getString("amount")
-
 
     }
 
@@ -164,7 +207,6 @@ public class MapsFragment extends Fragment {
 
                                 /*mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.fromBitmap(iconBitmap)).position(MyPosition).title("My current position"));
 */
-
 
                                 markerInicial = mMap.addMarker(new MarkerOptions()
                                         .position(start)
@@ -293,5 +335,6 @@ public class MapsFragment extends Fragment {
             }
         }
     }
+
 
 }

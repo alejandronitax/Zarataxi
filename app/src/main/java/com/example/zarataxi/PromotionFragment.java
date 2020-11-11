@@ -1,6 +1,7 @@
 package com.example.zarataxi;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.activity.OnBackPressedCallback;
@@ -95,6 +96,12 @@ public class PromotionFragment extends Fragment {
         view.findViewById(R.id.buttonPromotion).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                final SharedPreferences prefe = contexto.getSharedPreferences("preferences", Context.MODE_PRIVATE);
+                final SharedPreferences.Editor editor = prefe.edit();
+
+                editor.putString("tlf", "605156837");
+                editor.commit();
                 NavHostFragment.findNavController(PromotionFragment.this)
                         .navigate(R.id.action_PromotionFragment_to_VerificationFragment);
             }

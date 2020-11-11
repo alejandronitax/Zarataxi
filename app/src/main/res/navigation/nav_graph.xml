@@ -9,19 +9,20 @@
     <fragment
         android:id="@+id/SplashFragment"
         android:name="com.example.zarataxi.SplashFragment"
-        android:label="@string/first_fragment_label"
         android:noHistory="true"
         tools:layout="@layout/fragment_splash">
 
         <action
             android:id="@+id/action_SplashFragment_to_PromotionFragment"
             app:destination="@id/promotionFragment" />
+        <action
+            android:id="@+id/action_SplashFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/promotionFragment"
         android:name="com.example.zarataxi.PromotionFragment"
-        android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_promotion">
         <action
             android:id="@+id/action_PromotionFragment_to_VerificationFragment"
@@ -53,6 +54,9 @@
         android:name="com.example.zarataxi.MapsFragment"
         android:label="fragment_maps"
         tools:layout="@layout/fragment_maps" >
+        <argument
+            android:name="type_map"
+            app:argType="string" />
         <action
             android:id="@+id/action_mapsFragment_to_directionFragment"
             app:destination="@id/directionFragment" />
@@ -62,13 +66,33 @@
         android:name="com.example.zarataxi.DirectionFragment"
         android:label="fragment_direction"
         tools:layout="@layout/fragment_direction" >
-        <action
-            android:id="@+id/action_directionFragment_to_verificationFragment"
-            app:destination="@id/verificationFragment" />
+        <argument
+            android:name="type_map"
+            app:argType="string" />
+        <argument
+            android:name="access"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="direcction"
+            app:argType="string" />
         <action
             android:id="@+id/action_directionFragment_to_mapsFragment"
             app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_directionFragment_to_optionServicesFragment2"
+            app:destination="@id/optionServicesFragment2" />
     </fragment>
+    <fragment
+        android:id="@+id/optionServicesFragment2"
+        android:name="com.example.zarataxi.OptionServicesFragment"
+        android:label="fragment_option_services"
+        tools:layout="@layout/fragment_option_services" >
+        <action
+            android:id="@+id/action_optionServicesFragment2_to_directionFragment"
+            app:destination="@id/directionFragment" />
+    </fragment>
+    <include app:graph="@navigation/nav_graph_options_maps" />
 
 
 </navigation>
