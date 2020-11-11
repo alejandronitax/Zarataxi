@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -13,23 +15,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.material.datepicker.MaterialCalendar;
+import com.google.android.material.datepicker.MaterialDatePicker;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link OptionServicesFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class OptionServicesFragment extends Fragment implements AdapterView.OnItemSelectedListener {
+public class OptionServicesFragment extends Fragment implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     private Context contexto;
+    private Button button_count;
+    private DialogFragment nuevoFragmento;
 
     @Override
-    public void onAttach (Context context) {
+    public void onAttach(Context context) {
         super.onAttach(context);
         contexto = context;
     }
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -80,6 +93,28 @@ public class OptionServicesFragment extends Fragment implements AdapterView.OnIt
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Calendar calendar = Calendar.getInstance();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat df2 = new SimpleDateFormat("HH:mm");
+
+        String formattedHora = df2.format(calendar.getTime());
+        String formattedDate = df.format(calendar.getTime());
+
+        Button button_reloj = view.findViewById(R.id.button_reloj);
+        Button button_calendar = view.findViewById(R.id.button_calendar);
+        Button button_more_car = view.findViewById(R.id.button_more_car);
+        Button button_less_car = view.findViewById(R.id.button_less_car);
+        button_count = view.findViewById(R.id.button_count);
+
+
+        button_reloj.setText(formattedHora);
+        button_calendar.setText(formattedDate);
+
+        button_reloj.setOnClickListener(this);
+        button_calendar.setOnClickListener(this);
+        button_more_car.setOnClickListener(this);
+        button_less_car.setOnClickListener(this);
+
         Spinner spinner = view.findViewById(R.id.spinner);
 // Create an ArrayAdapter using the string array and a default spinner layout
         spinner.setOnItemSelectedListener(this);
@@ -100,6 +135,44 @@ public class OptionServicesFragment extends Fragment implements AdapterView.OnIt
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        
+
+        switch (view.getId()) {
+
+            case R.id.button_reloj:
+
+                nuevoFragmento = new DialogTimeFragment();
+                nuevoFragmento.show(getActivity().getSupportFragmentManager(), "dialogo1");
+
+                break;
+            case R.id.button_calendar:
+                Toast.makeText(contexto, "calendar", Toast.LENGTH_SHORT).show();
+                nuevoFragmento = new CalendarFragment();
+                nuevoFragmento.show(getActivity().getSupportFragmentManager(), "dialogo2");
+                break;
+
+            case R.id.button_more_car:
+
+/*                button_count.setImageDrawable(ResourcesCompat.getDrawable(context.getResources(), resource, null));
+                button_count*/
+                Toast.makeText(contexto, "2", Toast.LENGTH_SHORT).show();
+                button_count.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.dos, 0);
+                break;
+
+            case R.id.button_less_car:
+                button_count.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.uno, 0);
+                break;
+
+            default:
+
+                break;
+
+        }
 
     }
 }

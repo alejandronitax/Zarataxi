@@ -23,11 +23,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PromotionFragment extends Fragment {
+public class PromotionFragment extends Fragment implements View.OnClickListener{
 
     private Context contexto;
     private Handler sliderHandler = new Handler();
     private  ViewPager2 viewPager2;
+    private  SharedPreferences prefe;
     @Override
     public void onAttach (Context context) {
         super.onAttach(context);
@@ -40,8 +41,23 @@ public class PromotionFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_promotion, container, false);
+        View view;
+
+        prefe = contexto.getSharedPreferences("preferences", Context.MODE_PRIVATE);
+
+        if(prefe.getString("tlf","").isEmpty()){
+
+            view = inflater.inflate(R.layout.fragment_promotion, container, false);
+
+        } else {
+
+            view = inflater.inflate(R.layout.fragment_promotion2, container, false);
+
+        }
+
+        return view;
+            // Inflate the layout for this fragment
+
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -93,19 +109,17 @@ public class PromotionFragment extends Fragment {
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
 
-        view.findViewById(R.id.buttonPromotion).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        if(prefe.getString("tlf","").isEmpty()){
 
-                final SharedPreferences prefe = contexto.getSharedPreferences("preferences", Context.MODE_PRIVATE);
-                final SharedPreferences.Editor editor = prefe.edit();
+            view.findViewById(R.id.buttonPromotion).setOnClickListener(this);
 
-                editor.putString("tlf", "605156837");
-                editor.commit();
-                NavHostFragment.findNavController(PromotionFragment.this)
-                        .navigate(R.id.action_PromotionFragment_to_VerificationFragment);
-            }
-        });
+
+        } else {
+
+            view.findViewById(R.id.button_omitir).setOnClickListener(this);
+
+        }
+
     }
 
     private Runnable sliderRunnable = new Runnable() {
@@ -114,4 +128,24 @@ public class PromotionFragment extends Fragment {
             viewPager2.setCurrentItem(viewPager2.getCurrentItem() + 1);
         }
     };
+
+    @Override
+    public void onClick(View view) {
+
+        if(view.getId() == R.id.buttonPromotion){
+
+            final SharedPreferences.Editor editor = prefe.edit();
+            editor.putString("tlf", "605156837");
+            editor.commit();
+
+            NavHostFragment.findNavController(PromotionFragment.this)
+                    .navigate(R.id.action_PromotionFragment_to_VerificationFragment);
+
+        } else {
+
+            NavHostFragment.findNavController(PromotionFragment.this)
+                    .navigate(R.id.action_promotionFragment_to_mapsFragment);
+
+        }
+    }
 }

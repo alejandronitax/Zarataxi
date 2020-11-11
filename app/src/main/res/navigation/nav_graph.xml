@@ -27,6 +27,9 @@
         <action
             android:id="@+id/action_PromotionFragment_to_VerificationFragment"
             app:destination="@id/verificationFragment" />
+        <action
+            android:id="@+id/action_promotionFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
     </fragment>
     <fragment
         android:id="@+id/verificationFragment"
@@ -91,6 +94,11 @@
         <action
             android:id="@+id/action_optionServicesFragment2_to_directionFragment"
             app:destination="@id/directionFragment" />
+        <argument
+            android:name="orginDirection"
+            app:argType="string" />
+        <argument android:name="endDirection"
+            app:argType="string" />
     </fragment>
     <include app:graph="@navigation/nav_graph_options_maps" />
 

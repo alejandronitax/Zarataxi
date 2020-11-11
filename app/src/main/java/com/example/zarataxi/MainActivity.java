@@ -28,8 +28,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
 import androidx.navigation.NavHost;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import static com.example.zarataxi.MyAsyncTask.hideProgress;
 
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean respuesta;
     private View parentLayout;
     private LocationManager locationManager;
-
+    private NavController mNavController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +61,16 @@ public class MainActivity extends AppCompatActivity {
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         checkPermission();
         checkConexionInternet();
+
+/*        mNavController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, mNavController);*/
+
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        return mNavController.navigateUp();
+    }
 
     // Obtain the phone number from the result
     @Override

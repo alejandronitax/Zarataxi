@@ -80,8 +80,8 @@ public class DirectionFragment extends Fragment implements View.OnClickListener 
             @Override
             public void performClick(View v) {
                 bundle.putString("maps", "maps1");
-                NavHostFragment.findNavController(DirectionFragment.this)
-                        .navigate(R.id.action_directionFragment_to_mapsFragment, bundle);
+/*                NavHostFragment.findNavController(DirectionFragment.this)
+                        .navigate(R.id.action_directionFragment_to_mapsFragment, bundle);*/
             }
         });
 
@@ -90,8 +90,8 @@ public class DirectionFragment extends Fragment implements View.OnClickListener 
             public void performClick(View v) {
                 bundle.putString("maps", "maps1");
                 bundle.putBoolean("endDestiny",true);
-                NavHostFragment.findNavController(DirectionFragment.this)
-                        .navigate(R.id.action_directionFragment_to_mapsFragment, bundle);
+/*                NavHostFragment.findNavController(DirectionFragment.this)
+                        .navigate(R.id.action_directionFragment_to_mapsFragment, bundle);*/
 
             }
         });

@@ -19,64 +19,71 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/button_count"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="128dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="128dp"
+        android:clickable="false"
+        android:drawableRight="@drawable/uno"
         android:gravity="center|start"
         android:text="@string/car_number"
         app:layout_constraintBottom_toTopOf="@+id/checkBox"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/button_less_car"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
+
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/button_less_car"
         android:layout_width="85dp"
         android:layout_height="55dp"
         android:drawableLeft="@drawable/taxibutton"
         android:drawableRight="@drawable/menos"
-        app:layout_constraintStart_toStartOf="@+id/button6"
-        app:layout_constraintTop_toTopOf="@+id/button5" />
+        app:layout_constraintStart_toStartOf="@+id/button_calendar"
+        app:layout_constraintTop_toTopOf="@+id/button_count" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_more_car"
         android:layout_width="85dp"
         android:layout_height="55dp"
         android:layout_marginEnd="16dp"
         android:drawableLeft="@drawable/taxibutton"
         android:drawableRight="@drawable/suma"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button4" />
+        app:layout_constraintTop_toTopOf="@+id/button_less_car" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/button_calendar"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="16dp"
         android:text="@string/Date"
+        app:icon="@drawable/calendario"
         app:iconTintMode="multiply"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button2"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_reloj"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
+        app:layout_constraintStart_toEndOf="@+id/button_reloj" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_reloj"
         android:layout_width="0dp"
         android:layout_height="55dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="27dp"
+        android:gravity="center"
         android:text="@string/Hours"
-        app:iconTintMode="multiply"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
+        android:textAlignment="gravity"
+        app:icon="@drawable/reloj"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/button_count"
+        app:layout_constraintEnd_toStartOf="@+id/button_calendar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -87,7 +94,7 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="88dp"
         android:text="@string/Date"
-        app:layout_constraintStart_toStartOf="@+id/button6"
+        app:layout_constraintStart_toStartOf="@+id/button_calendar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <!--
@@ -214,7 +221,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/button_more_car" />
 
     <TextView
         android:id="@+id/textView6"
